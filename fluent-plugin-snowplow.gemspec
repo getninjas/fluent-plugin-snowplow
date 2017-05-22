@@ -7,11 +7,11 @@ Gem::Specification.new do |spec|
   spec.name          = "fluent-plugin-snowplow"
   spec.version       = Fluent::Plugin::Snowplow::VERSION
   spec.authors       = ["Lucas Souza"]
-  spec.email         = ["lucasas@gmail.com"]
+  spec.email         = ["lucas@getninjas.com.br"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "Fluentd snowplow gem"
+  spec.description   = "Fluentd snowplow gem"
+  spec.homepage      = "http://www.getninjas.com.br"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
