@@ -18,7 +18,9 @@ class Fluent::SomeOutput < Fluent::TimeSlicedOutput
     @emitter = SnowplowTracker::Emitter.new(@host, {
       buffer_size: @buffer_size,
       protocol: @protocol,
-      method: @method
+      method: @method,
+      on_success: ->(_) { log.debug("Flush with success on snowplow") },
+      on_failure: ->(_, _) { raise "Error when flushing to snowplow" }
     })
 
     @trackers = {}
