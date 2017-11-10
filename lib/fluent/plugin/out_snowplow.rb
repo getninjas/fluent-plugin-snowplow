@@ -1,9 +1,10 @@
 require 'snowplow-tracker'
 
-class Fluent::SomeOutput < Fluent::TimeSlicedOutput
+class Fluent::SnowplowOutput < Fluent::TimeSlicedOutput
   Fluent::Plugin.register_output('snowplow', self)
 
   config_param :host, :string
+  config_param :port, :integer
   config_param :buffer_size, :integer
   config_param :protocol, :string
   config_param :method, :string
@@ -15,9 +16,11 @@ class Fluent::SomeOutput < Fluent::TimeSlicedOutput
   def start
     super
 
+    # see https://github.com/snowplow/snowplow/wiki/Ruby-Tracker#5-emitters
     @emitter = SnowplowTracker::Emitter.new(@host, {
       buffer_size: @buffer_size,
       protocol: @protocol,
+      port: @port,
       method: @method,
       on_success: ->(_) { log.debug("Flush with success on snowplow") },
       on_failure: ->(_, _) { raise "Error when flushing to snowplow" }

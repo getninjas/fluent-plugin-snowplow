@@ -1,16 +1,42 @@
 PATH
   remote: .
   specs:
-    fluent-plugin-snowplow (0.1.0)
-      snowplow-tracker
+    fluent-plugin-snowplow (0.1.3)
+      fluentd (>= 0.12.0, < 0.14.0)
+      snowplow-tracker (~> 0.6.1)
 
 GEM
   remote: https://rubygems.org/
   specs:
     contracts (0.11.0)
+    cool.io (1.5.1)
+    fluentd (0.12.40)
+      cool.io (>= 1.2.2, < 2.0.0)
+      http_parser.rb (>= 0.5.1, < 0.7.0)
+      json (>= 1.4.3)
+      msgpack (>= 0.5.11, < 2)
+      sigdump (~> 0.2.2)
+      string-scrub (>= 0.0.3, <= 0.0.5)
+      tzinfo (>= 1.0.0)
+      tzinfo-data (>= 1.0.0)
+      yajl-ruby (~> 1.0)
+    http_parser.rb (0.6.0)
+    json (2.1.0)
+    msgpack (1.1.0)
+    power_assert (1.1.1)
     rake (10.5.0)
+    sigdump (0.2.4)
     snowplow-tracker (0.6.1)
       contracts (~> 0.7, <= 0.11)
+    string-scrub (0.0.5)
+    test-unit (3.1.9)
+      power_assert
+    thread_safe (0.3.6)
+    tzinfo (1.2.4)
+      thread_safe (~> 0.1)
+    tzinfo-data (1.2017.3)
+      tzinfo (>= 1.0.0)
+    yajl-ruby (1.3.1)
 
 PLATFORMS
   ruby
@@ -19,3 +45,8 @@ DEPENDENCIES
   bundler (~> 1.9)
   fluent-plugin-snowplow!
   rake (~> 10.0)
+  test-unit (~> 3.1.0)
+  yajl-ruby (~> 1.0)
+
+BUNDLED WITH
+   1.16.0
