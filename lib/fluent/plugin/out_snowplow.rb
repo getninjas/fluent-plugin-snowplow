@@ -52,7 +52,7 @@ class Fluent::SomeOutput < Fluent::TimeSlicedOutput
 
       contexts = contexts.map do |context|
         context_schema = context['schema']
-        context_message = JSON.parse context['message']
+        context_message = context['message']
 
         SnowplowTracker::SelfDescribingJson.new(context_schema, context_message)
       end
