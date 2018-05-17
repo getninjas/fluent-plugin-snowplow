@@ -47,10 +47,15 @@ class Fluent::SomeOutput < Fluent::TimeSlicedOutput
       message = JSON.parse record['message']
       true_timestamp = record['true_timestamp']
       application = record['application']
+      contexts = JSON.parse record['contexts']
       tracker = tracker_for(application)
 
+      contexts = contexts.map do |context|
+        SnowplowTracker::SelfDescribingJson.new(context['schema'], context['message'])
+      end
+
       self_describing_json = SnowplowTracker::SelfDescribingJson.new(schema, message)
-      tracker.track_self_describing_event(self_describing_json, nil, SnowplowTracker::TrueTimestamp.new(true_timestamp.to_i))
+      tracker.track_self_describing_event(self_describing_json, contexts, SnowplowTracker::TrueTimestamp.new(true_timestamp.to_i))
     end
 
     tracker.flush
