@@ -8,7 +8,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     contracts (0.11.0)
-    rake (10.5.0)
+    rake (13.0.1)
     snowplow-tracker (0.6.1)
       contracts (~> 0.7, <= 0.11)
 
@@ -18,4 +18,4 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.9)
   fluent-plugin-snowplow!
-  rake (~> 10.0)
+  rake (~> 13.0)
